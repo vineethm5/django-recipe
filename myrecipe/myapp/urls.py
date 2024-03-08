@@ -5,7 +5,9 @@ from django.conf import settings
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 urlpatterns=[
     path("",indexapp,name='index'),
-    path("report/",report,name='report')
+    path("report/",report,name='report'),
+    path("deletee/",dele,name='delete')
+
 ]
 
 if settings.DEBUG:
