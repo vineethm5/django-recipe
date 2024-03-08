@@ -15,3 +15,8 @@ def indexapp(req):
        
 
     return render(req,'index.html')
+
+def report(req):
+    queryset=recipe.objects.all()
+    
+    return render(req,"report.html",context={"recipereport":queryset})
