@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import *
+from django.http import HttpResponse
 # Create your views here.
 def indexapp(req):
     if req.method == 'POST':
@@ -22,14 +23,7 @@ def report(req):
     return render(req,"report.html",context={"recipereport":queryset,"counter":queryset1})
 
 
-def dele(req):
-    if req.method == 'GET':        
-        totr=int(req.GET['totalrow'])
-        for i in range(1,totr):
-            print(i)
-            if req.GET['chek'] == '1':
-                print("hi iam workiing")
-                k=i
-                uid=req.GET["k"]
-                print(uid)
-    return render(req,"report.html")
+def dele(req,id):
+    queryset=recipe.objects.all().get(id = id)
+    queryset.delete()
+    return render(req,"index.html")

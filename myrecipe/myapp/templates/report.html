@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 {% block start %}
 
-<form action="/deletee">
 <table class="table">
     <thead>
       <tr>
@@ -19,14 +18,11 @@
         <td>{{recipe.recipename}}</td>
         <td>{{recipe.recipedescription}}</td>
         <td><img src="/media/{{recipe.recipeimg}}" style="width: 100px;"> </td>
-        <td><input type="checkbox" name="chek" value="1"></td>
-        <td style="display: none;"><input type="hidden" name="{{forloop.counter}}" value="{{recipe.id}}"></td>
-      </tr>
+        <td><a href="/deletee/{{recipe.id}}/" class="btn btn-danger">Delete</td>
+          </tr>
       {% endfor %}
-        <td style="display: none;"><input type="hidden" name="totalrow" value="{{counter}}"></td>
+        
     </tbody>
     
   </table>
-  <input type="submit" class="btn-primary"  name="delete" value="Delete">
-</form>
 {% endblock%}
