@@ -6,7 +6,8 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 urlpatterns=[
     path("",indexapp,name='index'),
     path("report/",report,name='report'),
-    path("deletee/<id>/",dele,name='delete')
+    path("deletee/<id>/",dele,name='delete'),
+    path("updatee/<id>/",updatee,name='update'),
 
 ]
 
