@@ -26,7 +26,7 @@ def report(req):
 def dele(req,id):
     queryset=recipe.objects.all().get(id = id)
     queryset.delete()
-    return render(req,"index.html")
+    return redirect("/report")
 
 def updatee(req,id):
     queryset=recipe.objects.get(id = id)
@@ -46,3 +46,7 @@ def updatee(req,id):
         return redirect("/report")
         
     return render(req,"update.html",context)    
+
+
+def login(req):
+    return render(req,"login.html")
