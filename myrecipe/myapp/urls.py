@@ -9,6 +9,7 @@ urlpatterns=[
     path("deletee/<id>/",dele,name='delete'),
     path("updatee/<id>/",updatee,name='update'),
     path("login/",login,name="login"),
+    path("register/",register,name='register'),
 
 ]
 
