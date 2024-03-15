@@ -2,6 +2,7 @@ from django.shortcuts import redirect, render
 from .models import *
 from django.http import HttpResponse
 from django.contrib.auth.models import *
+from django.contrib.auth import authenticate
 # Create your views here.
 def indexapp(req):
     if req.method == 'POST':
@@ -50,6 +51,10 @@ def updatee(req,id):
 
 
 def login(req):
+    if req.method == "POST":
+        username=req.POST.get('username')
+        password=req.POST.get('password')
+        user=authenticate(username=username,password=password)
     return render(req,"login.html")
 
 def register(req):
@@ -63,4 +68,7 @@ def register(req):
             first_name=fname
                                  )
         user.set_password(password)
+        user.save()
+        context={"successmsg":"Registration Successfull"}
+        return redirect("/register/",context)
     return render(req,'register.html')
